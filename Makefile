@@ -10,7 +10,7 @@ OUTPUT_BIN := Thread_Practice
 
 INCLUDE_PATH := 
 
-SOURCE_FILES := Thread_Practice.c
+SOURCE_FILES := time_thread.c
 
 SOURCE_OBJECTS := $(addprefix $(BUILD_DIR)/, $(SOURCE_FILES:.c=.o) )
 
