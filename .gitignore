@@ -3,6 +3,6 @@
 *.mk
 .cproject
 .project
-.settings
-Debug
-
+.settings/
+Debug/
+build/
