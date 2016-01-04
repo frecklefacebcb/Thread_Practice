@@ -16,6 +16,9 @@
 #include <stdbool.h>
 
 
+static char shared_var = 0;
+
+
 void * timer_thread(void *p_unused)
 {
     static const clock_t CLK_INTERVAL = CLOCKS_PER_SEC;
@@ -28,8 +31,9 @@ void * timer_thread(void *p_unused)
         printf("Time %i\n", count);
         mark = clock();
         while(clock() < (mark + CLK_INTERVAL));
+        shared_var++;
     }
-    printf("Finished!\n");
+    printf("Time Thread Finished!\n");
 
     pthread_exit(NULL);
 }
@@ -51,7 +55,9 @@ int main(int argc, char **argv)
     while(in != 'q')
     {
         scanf("%c", &in);
+        shared_var++;
     }
 
+    printf("Shared Count is %i\n", shared_var);
     pthread_exit(NULL);
 }
